@@ -5,7 +5,7 @@ $totalBuyIn = 0
 $totalCashOut = 0
 
 $buyIns = Select-String -Path $logLocation -Pattern "$pirateName bought in for ([\d]*)" 
-$cashOuts = Select-String -Path $logLocation -pattern "$pirateName cashed out with ([\d]*)"
+$cashOuts = Select-String -Path $logLocation -pattern "Ye cashed out with ([\d]*)"
 
 foreach ($buyIn in $buyIns) {
     $buyIn -match "bought in for ([\d,]*)" | Out-Null
@@ -24,4 +24,3 @@ Write-Host "You made a profit of $finalValue PoE" -ForegroundColor Green
 Else {
 Write-Host "You lost a total of $finalValue PoE" -ForegroundColor Red
 }
-
