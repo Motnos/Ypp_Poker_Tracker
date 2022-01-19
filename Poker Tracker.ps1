@@ -24,3 +24,4 @@ Write-Host "You made a profit of $finalValue PoE" -ForegroundColor Green
 Else {
 Write-Host "You lost a total of $finalValue PoE" -ForegroundColor Red
 }
+Pause
