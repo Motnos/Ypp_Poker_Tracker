@@ -12,7 +12,7 @@ foreach ($buyIn in $buyIns) {
     $totalBuyin = $totalBuyin + $Matches[1]
 }
 foreach ($cashOut in $cashOuts) {
-    $cashOut -match "cashed out with ([\d,]*)" | Out-Null
+    $cashOut -match "Ye cashed out with ([\d,]*)" | Out-Null
     $totalCashOut = $totalCashout + $Matches[1]
 }
 
