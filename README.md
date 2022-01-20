@@ -7,4 +7,4 @@ You must have Chat Logging enabled in game for this to work.
 
 Results look like this
 
-![image](https://user-images.githubusercontent.com/45239114/150429362-c0dab706-5248-42d6-926d-c3ba6f377782.png)
+![image](https://user-images.githubusercontent.com/45239114/150429397-ca35007e-c353-4455-b807-fd420dfeafb8.png)
