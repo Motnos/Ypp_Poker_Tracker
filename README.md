@@ -13,6 +13,8 @@ Search your computer for Powershell ISE, right click it and press "Run as admin"
 
 Paste the contents of the script into the Window that appears (you may need to go to File > New if there is no whitespace to type in) then edit the first two lines to be the location of the log you set (you can see this in game) and your pirate name.
 
+The script to paste is here - https://github.com/Motnos/Ypp_Poker_Tracker/blob/main/Poker%20Tracker.ps1
+
 ![image](https://user-images.githubusercontent.com/45239114/150429868-cb93a0cb-83e1-4cce-89fd-e626706bce7c.png)
 
 Once you have done this, press the green play button (or F5 on your keyboard)
