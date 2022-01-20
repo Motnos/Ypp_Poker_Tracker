@@ -3,7 +3,7 @@ Calculates profit or loss in Ypp Poker by reading the games chat logs and extrac
 
 You must have Chat Logging enabled in game for this to work. 
 
-![image](https://user-images.githubusercontent.com/45239114/150341789-f9fda4c6-ae02-4e9d-90e2-184d15849397.png)
+![image](https://user-images.githubusercontent.com/45239114/150430700-845f07fd-bd25-4583-a583-8e3c9ae879d1.png)
 
 For Noobs: 
 
@@ -15,7 +15,7 @@ Paste the contents of the script into the Window that appears (you may need to g
 
 The script to paste is here - https://github.com/Motnos/Ypp_Poker_Tracker/blob/main/Poker%20Tracker.ps1
 
-![image](https://user-images.githubusercontent.com/45239114/150429868-cb93a0cb-83e1-4cce-89fd-e626706bce7c.png)
+![image](https://user-images.githubusercontent.com/45239114/150430792-47609e77-eeac-4b47-9025-6dd0a5b4be74.png)
 
 Once you have done this, press the green play button (or F5 on your keyboard)
 
@@ -24,3 +24,5 @@ Once you have done this, press the green play button (or F5 on your keyboard)
 And view your results in the blue console window at the bottom.
 
 ![image](https://user-images.githubusercontent.com/45239114/150429397-ca35007e-c353-4455-b807-fd420dfeafb8.png)
+
+If it doensn't work, ensure you have set the log location correctly. The game will append your Piratename_Ocean to the start of the filename, despite what it says in game.
