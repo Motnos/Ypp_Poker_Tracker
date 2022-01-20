@@ -25,9 +25,9 @@ foreach ($rebuy in $reBuys) {
 $finalValue = $totalCashOut - $totalBuyIn -$totalRebuy
 
 If ($finalValue -ge 0) {
-Write-Host "You made a profit of $finalValue PoE" -ForegroundColor Green
+    Write-Host "You made a profit of $finalValue PoE" -ForegroundColor Green
 }
 Else {
-Write-Host "You lost a total of $finalValue PoE" -ForegroundColor Red
+    Write-Host "You lost a total of $finalValue PoE" -ForegroundColor Red
 }
 Pause
