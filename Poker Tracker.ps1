@@ -25,15 +25,15 @@ foreach ($rebuy in $reBuys) {
 $finalValue = $totalCashOut - $totalBuyIn -$totalRebuy
 
 If ($finalValue -ge 0) {
-    Write-Host "Total Buy In $totalBuyIn" -ForegroundColor Red
-    Write-Host "Total Rebuy $totalRebuy" -ForegroundColor Red
-    Write-Host "Total Cashout $totalCashOut" -ForegroundColor Green
+    Write-Host "Total Bought In In $totalBuyIn" -ForegroundColor Red
+    Write-Host "Total Rebought $totalRebuy" -ForegroundColor Red
+    Write-Host "Total Cashed out $totalCashOut" -ForegroundColor Green
     Write-Host "$pirateName made a total profit of $finalValue PoE" -ForegroundColor Green
 }
 Else {
-    Write-Host "Total Buy In $totalBuyIn" -ForegroundColor Red
-    Write-Host "Total Rebuy $totalRebuy" -ForegroundColor Red
-    Write-Host "Total Cashout $totalCashOut" -ForegroundColor Green
+    Write-Host "Total Bought In $totalBuyIn" -ForegroundColor Red
+    Write-Host "Total Rebought $totalRebuy" -ForegroundColor Red
+    Write-Host "Total Cashedh out $totalCashOut" -ForegroundColor Green
     Write-Host "$pirateName lost a total of $finalValue PoE" -ForegroundColor Red
 }
 Pause
