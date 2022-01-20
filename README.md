@@ -15,7 +15,7 @@ Paste the contents of the script into the Window that appears (you may need to g
 
 ![image](https://user-images.githubusercontent.com/45239114/150429868-cb93a0cb-83e1-4cce-89fd-e626706bce7c.png)
 
-Once you have done this, press the green play button 
+Once you have done this, press the green play button (or F5 on your keyboard)
 
 ![image](https://user-images.githubusercontent.com/45239114/150429961-cb937903-ea4b-4b46-9c3a-fe0561d088db.png)
 
