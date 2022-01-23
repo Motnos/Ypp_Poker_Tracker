@@ -33,7 +33,7 @@ If ($finalValue -ge 0) {
 Else {
     Write-Host "Total Bought In $totalBuyIn" -ForegroundColor Red
     Write-Host "Total Rebought $totalRebuy" -ForegroundColor Red
-    Write-Host "Total Cashedh out $totalCashOut" -ForegroundColor Green
+    Write-Host "Total Cashed out $totalCashOut" -ForegroundColor Green
     Write-Host "$pirateName lost a total of $finalValue PoE" -ForegroundColor Red
 }
 Pause
