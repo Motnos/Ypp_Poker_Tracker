@@ -23,6 +23,7 @@ Once you have done this, press the green play button (or F5 on your keyboard)
 
 And view your results in the blue console window at the bottom.
 
-![image](https://user-images.githubusercontent.com/45239114/150429397-ca35007e-c353-4455-b807-fd420dfeafb8.png)
+![image](https://user-images.githubusercontent.com/45239114/150699743-74d0781a-c982-4bb8-b271-3f72b78de521.png)
+![image](https://user-images.githubusercontent.com/45239114/150699755-49b7e8ca-2390-40e2-93cd-656ca4bd1893.png)
 
 If it doensn't work, ensure you have set the log location correctly. The game will append your Piratename_Ocean to the start of the filename, despite what it says in game.
