@@ -1,5 +1,5 @@
-$logLocation = 'D:\Ypp Chat Logging\Ept_emerald_Ypp_Chat_Log_EPT.txt' #Set this to the location of your Ypp Chat Log
-$pirateName = 'Ept' #Set this to your Pirate Name
+$logLocation = 'C:\Chat Logging\PirateName_Ocean_Ypp_Chat_Log.txt' #Set this to the location of your Ypp Chat Log
+$pirateName = 'PirateName' #Set this to your Pirate Name
 
 $totalBuyIn = 0
 $totalRebuy = 0
