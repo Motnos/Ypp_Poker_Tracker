@@ -1,7 +1,13 @@
-$logLocation = 'D:\Ypp Chat Logging\Ept_emerald_Ypp_Chat_Log_EPT.txt' #Set this to the location of your Ypp Chat Log
+###### Setup Items ######
+
 $pirateName = 'Ept' #Set this to your Pirate Name
-$streamOutput = 'D:\Ypp Chat Logging\Stream\Output.txt' #Set this as a text source in OBS
+$logLocation = 'D:\Ypp Chat Logging\' #Set this to the location of your Ypp Chat Log (include final \)
+$logFileName = 'Ept_emerald_Ypp_Chat_Log_EPT.txt' #Set this to the name of your Ypp Chat Log
+
+###### Config Items ######
+
 $updateFrequency = 5 #Number of seconds to wait before updating again
+$date = Get-Date -Format yyyy/MM/dd #Set to todays date by default. Change to $date = yyyy/MM/dd to go back further. IT MUST BE IN THIS FORMAT
 
 ###### Do not change after this point #######
 
@@ -11,13 +17,20 @@ $totalCashOut = 0
 $totalCashOutRebuy = 0
 $loss = 0
 $running = 1
+$todaysLog = $logLocation+'TodaysLog.txt' 
+$streamOutput = $logLocation+'StreamOutput.txt' #Set this as a text source in OBS
 
 While ($running = 1) {
 
-    $buyIns = Select-String -Path $logLocation -Pattern "[[]{1}[\d]{2}[:]{1}[\d]{2}[:]{1}[\d]{2}\S{1} $pirateName bought in for ([\d]*)" 
-    $rebuys = Select-String -Path $logLocation -Pattern "[[]{1}[\d]{2}[:]{1}[\d]{2}[:]{1}[\d]{2}\S{1} $pirateName rebought for ([\d]*)"
-    $cashOuts = Select-String -Path $logLocation -pattern "[[]{1}[\d]{2}[:]{1}[\d]{2}[:]{1}[\d]{2}\S{1} Ye cashed out with ([\d]*)"
-    $cashOutRebuys = Select-String -Path $logLocation -pattern "[[]{1}[\d]{2}[:]{1}[\d]{2}[:]{1}[\d]{2}\S{1} $pirateName cashed out with ([\d]*)" # If you cash out and rebuy in the same turn puts your pirate name in the chat rather than 'Ye'.
+    $lineNumber = Get-Content $logLocation$logFileName | Select-String -Pattern $date | Select-Object -First 1
+    $lineNumber = $lineNumber.LineNumber #Finds which line todays date is first seen in the log
+
+    Get-Content $logLocation$logFileName | Select-Object -skip $lineNumber | Out-File -FilePath $todaysLog #Extracts and saves a new file containing only todays results
+
+    $buyIns = Select-String -Path $todaysLog -Pattern "[[]{1}[\d]{2}[:]{1}[\d]{2}[:]{1}[\d]{2}\S{1} $pirateName bought in for ([\d]*)" 
+    $rebuys = Select-String -Path $todaysLog -Pattern "[[]{1}[\d]{2}[:]{1}[\d]{2}[:]{1}[\d]{2}\S{1} $pirateName rebought for ([\d]*)"
+    $cashOuts = Select-String -Path $todaysLog -pattern "[[]{1}[\d]{2}[:]{1}[\d]{2}[:]{1}[\d]{2}\S{1} Ye cashed out with ([\d]*)"
+    $cashOutRebuys = Select-String -Path $todaysLog -pattern "[[]{1}[\d]{2}[:]{1}[\d]{2}[:]{1}[\d]{2}\S{1} $pirateName cashed out with ([\d]*)" # If you cash out and rebuy in the same turn puts your pirate name in the chat rather than 'Ye'.
 
     foreach ($buyIn in $buyIns) {
         $buyIn -match "bought in for ([\d,]*)" | Out-Null
