@@ -1,14 +1,19 @@
+
 $logLocation = 'D:\Ypp Chat Logging\Ept_emerald_Ypp_Chat_Log_EPT.txt' #Set this to the location of your Ypp Chat Log
 $pirateName = 'Ept' #Set this to your Pirate Name
 $streamOutput = 'D:\Ypp Chat Logging\Stream\Output.txt' #Set this as a text source in OBS
+$updateFrequency = 5 #Number of seconds to wait before updating again
+
+###### Do not change after this point #######
 
 $totalBuyIn = 0
 $totalRebuy = 0
 $totalCashOut = 0
 $totalCashOutRebuy = 0
 $loss = 0
+$running = 1
 
-While ($pirateName = 'Ept') {
+While ($running = 1) {
 
     $buyIns = Select-String -Path $logLocation -Pattern "[[]{1}[\d]{2}[:]{1}[\d]{2}[:]{1}[\d]{2}\S{1} $pirateName bought in for ([\d]*)" 
     $rebuys = Select-String -Path $logLocation -Pattern "[[]{1}[\d]{2}[:]{1}[\d]{2}[:]{1}[\d]{2}\S{1} $pirateName rebought for ([\d]*)"
@@ -94,16 +99,19 @@ While ($pirateName = 'Ept') {
     
     if ($loss -eq 1) {
     
-        Write-Host "-$finalValue Saved to $streamOutput"
         "-$finalValue" | Out-File -FilePath $streamOutput
+        Write-Host "-$finalValue Saved to $streamOutput - Set this location as your Text source in OBS"
+        Write-Host "Waiting $updateFrequency seconds before updating again"
 
     }
     else {
 
-        Write-Host "+$finalValue Saved to $streamOutput"
         "+$finalValue" | Out-File -FilePath $streamOutput
+        Write-Host "+$finalValue Saved to $streamOutput - Set this location as your Text source in OBS"
+        Write-Host "Waiting $updateFrequency seconds before updating again"
 
     }
 
-    Start-Sleep 5 #Amount of seconds to wait before script runs again
+    Start-Sleep $updateFrequency #Amount of seconds to wait before script runs again
+    
 }
