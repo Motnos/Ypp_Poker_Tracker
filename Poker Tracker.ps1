@@ -3,12 +3,13 @@
 
 $logLocation = 'D:\Ypp Chat Logging\Ept_emerald_Ypp_Chat_Log_EPT.txt' #Set this to the location of your Ypp Chat Log
 $pirateName = 'Ept' #Set this to your Pirate Name
-$streamOutput = 'D:\Ypp Chat Logging\Stream\Output.txt'
+$streamOutput = 'D:\Ypp Chat Logging\Stream\Output.txt' #Set this as a text source in OBS
 
 $totalBuyIn = 0
 $totalRebuy = 0
 $totalCashOut = 0
 $totalCashOutRebuy = 0
+$loss = 0
 
 While ($pirateName = 'Ept') {
 
@@ -46,18 +47,66 @@ While ($pirateName = 'Ept') {
         $totalRebuy = 0
         $totalCashOut = 0
         $totalCashOutRebuy = 0
+        $loss = 0
     }
 
     Else {
 
         Write-Host "$pirateName lost a total of $finalValue PoE" -ForegroundColor Red
-        $finalValue | Out-File -FilePath $streamOutput
-
         $totalBuyIn = 0
         $totalRebuy = 0
         $totalCashOut = 0
         $totalCashOutRebuy = 0
+        $loss = 1
     }
 
-    Start-Sleep 5 #Amount of seconds to wait before trying again
+    $finalValue = $finalValue.ToString() #Converts $finalValue to String from INT before rounding
+    $finalValue = $finalValue -replace '[-]','' #Removes the - if there is a loss to prevent broken calculation, to a it back later on.
+
+
+    if ($finalValue.length -eq '8') {
+ 
+        $finalValue = $finalValue.Substring(0,2) + "." + $finalValue.Substring(2,2)
+        $finalValue =  $finalValue+"M"
+
+    }
+    elseif ($finalValue.length -eq '7') {
+ 
+        $finalValue = $finalValue.Substring(0,1) + "." + $finalValue.Substring(1,2)
+       $finalValue = $finalValue+"M"
+
+    }
+    elseif ($finalValue.length -eq '6') {
+ 
+        $finalValue = $finalValue.Substring(0,3) + "." + $finalValue.Substring(3,1)
+        $finalValue = $finalValue+"K"
+
+    }
+    elseif ($finalValue.length -eq '5') {
+ 
+        $finalValue = $finalValue.Substring(0,2) + "." + $finalValue.Substring(2,1)
+        $finalValue = $finalValue+"K"
+
+    }
+    elseif ($finalValue.length -eq '4') {
+
+        $finalValue = $finalValue.Substring(0,1) + "." + $finalValue.Substring(1,1)
+        $finalValue = $finalValue+"K"
+
+    }
+    
+    if ($loss -eq 1) {
+    
+        Write-Host "-$finalValue"
+        "-$finalValue" | Out-File -FilePath $streamOutput
+
+    }
+    else {
+
+        Write-Host "+$finalValue"
+        "+$finalValue" | Out-File -FilePath $streamOutput
+
+    }
+
+    Start-Sleep 5 #Amount of seconds to wait before script runs again
 }
