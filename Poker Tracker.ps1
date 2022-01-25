@@ -25,7 +25,7 @@ While ($running = 1) {
     $lineNumber = Get-Content $logLocation$logFileName | Select-String -Pattern $date | Select-Object -First 1
     $lineNumber = $lineNumber.LineNumber #Finds which line todays date is first seen in the log
 
-    Get-Content $logLocation$logFileName | Select-Object -skip $lineNumber | Out-File -FilePath $todaysLog #Extracts and saves a new file containing only todays results
+    Get-Content $logLocation$logFileName | Select-Object -skip $lineNumber | Out-File -FilePath $todaysLog  #Extracts and saves a new file containing only todays results
 
     $buyIns = Select-String -Path $todaysLog -Pattern "[[]{1}[\d]{2}[:]{1}[\d]{2}[:]{1}[\d]{2}\S{1} $pirateName bought in for ([\d]*)" 
     $rebuys = Select-String -Path $todaysLog -Pattern "[[]{1}[\d]{2}[:]{1}[\d]{2}[:]{1}[\d]{2}\S{1} $pirateName rebought for ([\d]*)"
@@ -111,14 +111,14 @@ While ($running = 1) {
     
     if ($loss -eq 1) {
     
-        "-$finalValue" | Out-File -FilePath $streamOutput
+        "-$finalValue" | Out-File -Encoding utf8 -FilePath $streamOutput
         Write-Host "-$finalValue Saved to $streamOutput - Set this location as your Text source in OBS"
         Write-Host "Waiting $updateFrequency seconds before updating again"
 
     }
     else {
 
-        "+$finalValue" | Out-File -FilePath $streamOutput
+        "+$finalValue" | Out-File -Encoding utf8 -FilePath $streamOutput 
         Write-Host "+$finalValue Saved to $streamOutput - Set this location as your Text source in OBS"
         Write-Host "Waiting $updateFrequency seconds before updating again"
 
