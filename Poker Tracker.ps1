@@ -1,6 +1,3 @@
-
-
-
 $logLocation = 'D:\Ypp Chat Logging\Ept_emerald_Ypp_Chat_Log_EPT.txt' #Set this to the location of your Ypp Chat Log
 $pirateName = 'Ept' #Set this to your Pirate Name
 $streamOutput = 'D:\Ypp Chat Logging\Stream\Output.txt' #Set this as a text source in OBS
@@ -97,13 +94,13 @@ While ($pirateName = 'Ept') {
     
     if ($loss -eq 1) {
     
-        Write-Host "-$finalValue"
+        Write-Host "-$finalValue Saved to $streamOutput"
         "-$finalValue" | Out-File -FilePath $streamOutput
 
     }
     else {
 
-        Write-Host "+$finalValue"
+        Write-Host "+$finalValue Saved to $streamOutput"
         "+$finalValue" | Out-File -FilePath $streamOutput
 
     }
