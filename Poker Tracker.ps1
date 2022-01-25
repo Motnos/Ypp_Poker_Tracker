@@ -1,4 +1,6 @@
 
+
+
 $logLocation = 'D:\Ypp Chat Logging\Ept_emerald_Ypp_Chat_Log_EPT.txt' #Set this to the location of your Ypp Chat Log
 $pirateName = 'Ept' #Set this to your Pirate Name
 $streamOutput = 'D:\Ypp Chat Logging\Stream\Output.txt' #Set this as a text source in OBS
@@ -112,6 +114,6 @@ While ($running = 1) {
 
     }
 
-    Start-Sleep $updateFrequency #Amount of seconds to wait before script runs again
+    Start-Sleep $updateFrequency 
     
 }
