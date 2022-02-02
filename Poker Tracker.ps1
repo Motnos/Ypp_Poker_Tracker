@@ -7,7 +7,7 @@ $logFileName = 'Ept_emerald_Ypp_Chat_Log_EPT.txt' #Set this to the name of your 
 ###### Config Items ######
 
 $updateFrequency = 5 #Number of seconds to wait before updating again
-$date = Get-Date -Format yyyy/MM/dd #Set to todays date by default. Change to $date = yyyy/MM/dd to go back further. IT MUST BE IN THIS FORMAT
+$date = Get-Date -Format yyyy/MM/d #Set to todays date by default. Change to $date = yyyy/MM/d to go back further. IT MUST BE IN THIS FORMAT
 
 ###### Do not change after this point #######
 
